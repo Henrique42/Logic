@@ -2,9 +2,9 @@ from itertools import product
 
 #TRUTH TABLE
 
-#Replaces
+#Make changes at the text that will be printed as the truth table
 def ttable_aux(text):
-    return text.replace('True', 'T').replace('False', 'F').replace('0', 'F').replace('1', 'T')
+    return text.replace('True', 'T').replace('1', 'T').replace('False', 'F').replace('0', 'F')
 
 #Main function
 def ttable():
