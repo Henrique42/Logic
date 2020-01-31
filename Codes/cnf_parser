@@ -1,0 +1,41 @@
+from itertools import product
+
+#Parse the formula to CNF
+def cnf(propositions, formula):
+    h2 = []
+    h3 = []
+
+    for var in product([False, True], repeat=len(propositions)):
+            aux_list = dict(zip(propositions, var))
+            result = eval(formula, aux_list)
+            
+            if result == False or result == 0:
+                h2.append([str(v) for v in var])
+    if h2 == []:
+        return [[True]]
+    else:
+        for i in h2:
+            aux = []
+            
+            for j in range(0, len(i)):
+                if i[j] == 'True':
+                    aux.append('~' + propositions[j])
+                else:
+                    aux.append(propositions[j])
+
+            h3.append(aux)
+
+        return h3
+
+#Main
+def q2():
+    print('\nPARSE TO CONJUNCTIVE NORMAL FORMULA')
+    h = input('Tip the formula: ')
+    h1 = h.strip().replace('>', '<=').replace('%', '==').replace('~', '1 - 1 * ').replace('&', 'and').replace('|', 'or')
+    formula = compile(h1, '<string>', 'eval')
+    propositions = formula.co_names
+
+    if h not in propositions and'True' not in h and 'False' not in h and '>' not in h and '%' not in h and '~' not in h and '&' not in h and '|' not in h:
+        print('Invalid formuala!')
+    else:
+        print('List of clauses: ', cnf(propositions, formula))
