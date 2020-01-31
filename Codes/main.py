@@ -1,5 +1,5 @@
-import truth_table
 import cnf_parser
+import truth_table
 
 #Init
 def main():
