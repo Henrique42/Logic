@@ -4,7 +4,7 @@ from itertools import product
 
 #Replaces
 def ttable_aux(text):
-    return text.replace('True', 'V').replace('False', 'F').replace('0', 'F').replace('1', 'V')
+    return text.replace('True', 'T').replace('False', 'F').replace('0', 'F').replace('1', 'T')
 
 #Main function
 def ttable():
