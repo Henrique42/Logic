@@ -1,6 +1,6 @@
 from itertools import product
 
-#Parse the formula to CNF
+#Parse the formula to DNF
 def parser(propositions, formula):
     h2 = []
     h3 = []
