@@ -10,8 +10,8 @@ def parser(propositions, formula):
             #Get the truth table
             result = eval(formula, aux_list)
             
-            #append false values
-            if result == False or result == 0:
+            #append true values
+            if result == True or result == 1:
                 h2.append([str(v) for v in var])
     if h2 == []:
         return [[True]]
@@ -20,8 +20,8 @@ def parser(propositions, formula):
             aux = []
             
             for j in range(0, len(i)):
-                if i[j] == 'True':
-                    aux.append(propositions[j])
+                if i[j] == 'False':
+                    aux.append('~' + propositions[j])
                 else:
                     aux.append(propositions[j])
 

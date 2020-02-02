@@ -20,7 +20,7 @@ def parser(propositions, formula):
             aux = []
             
             for j in range(0, len(i)):
-                if i[j] == 'False':
+                if i[j] == 'True':
                     aux.append('~' + propositions[j])
                 else:
                     aux.append(propositions[j])
