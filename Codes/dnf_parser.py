@@ -20,8 +20,8 @@ def parser(propositions, formula):
             aux = []
             
             for j in range(0, len(i)):
-                if i[j] == 'False':
-                    aux.append('~' + propositions[j])
+                if i[j] == 'True':
+                    aux.append(propositions[j])
                 else:
                     aux.append(propositions[j])
 
@@ -30,8 +30,8 @@ def parser(propositions, formula):
         return h3
 
 #Main
-def cnf():
-    print('\nCNF PARSER')
+def dnf():
+    print('\nDNF PARSER')
     h = input('Tip the formula: ')
     h1 = h.strip().replace('>', '<=').replace('%', '==').replace('~', '1 - 1 * ').replace('&', 'and').replace('|', 'or')
     formula = compile(h1, '<string>', 'eval')
